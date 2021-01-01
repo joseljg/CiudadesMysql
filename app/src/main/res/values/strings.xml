@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Ciudades Mysql</string>
+    <string name="mostrar_ciudades">Mostrar Ciudades</string>
+    <string name="nueva_provincia">Nueva Provincia</string>
+    <string name="nombre">Nombre</string>
+    <string name="guardar_provincia">Guardar Provincia</string>
+    <string name="borrar_provincia">Borrar Provincia</string>
+    <string name="nombre_item_provincia">nombre item provincia</string>
+    <string name="valor_item_provincia">Valor Item Provincia</string>
+    <string name="item_provincia">item provincia</string>
+    <string name="actualizar_provincia">Actualizar Provincia</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="id_provincia">Id Provincia</string>
+    <string name="nombre_provincia">Nombre provincia</string>
+    <string name="id_hint_provincia">id Provincia</string>
+    <string name="actualizar_hint_provincia">Actualizar Provincia</string>
+    <string name="nombre_hint_provincia">Nombre Provincia</string>
+    <string name="txt_nombre_provinciaa">Nombre provincia</string>
+    <string name="txt_id_provinciaa">id Provincia</string>
+</resources>

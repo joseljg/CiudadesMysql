@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActualizarProvinciaActivity2">
+
+    <TextView
+        android:id="@+id/txt_actualizar_nombrep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/txt_nombre_provinciaa"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_actualizar_nombrep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edt_actualizar_nombrep"
+        app:layout_constraintVertical_bias="0.615" />
+
+    <TextView
+        android:id="@+id/txt_actualizar_provincia2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="@string/actualizar_provincia"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_actualizar_idp"
+        android:layout_width="223dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/id_hint_provincia"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_actualizar_provincia2" />
+
+    <EditText
+        android:id="@+id/edt_actualizar_nombrep"
+        android:layout_width="230dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="40dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/nombre_hint_provincia"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/edt_actualizar_idp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_actualizar_idp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_actualizar_idp" />
+
+    <Button
+        android:id="@+id/bt_actualizarp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/actualizar_hint_provincia"
+        android:onClick="actualizarProvincia"
+        app:layout_constraintEnd_toEndOf="@+id/edt_actualizar_nombrep"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_actualizar_nombrep"
+        app:layout_constraintTop_toBottomOf="@+id/edt_actualizar_nombrep" />
+
+    <TextView
+        android:id="@+id/txt_actualizar_idp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/txt_id_provinciaa"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_actualizar_idp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edt_actualizar_idp"
+        app:layout_constraintVertical_bias="0.47" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
