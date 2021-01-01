@@ -11,11 +11,38 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 import es.joseljg.ciudadesmysql.clases.Ciudad;
+import es.joseljg.ciudadesmysql.clases.Provincia;
 import es.joseljg.ciudadesmysql.tareas.TareaInsertarCiudad;
 import es.joseljg.ciudadesmysql.tareas.TareaMostrarCiudades;
+import es.joseljg.ciudadesmysql.tareas.TareaObtenerCiudades;
+import es.joseljg.ciudadesmysql.tareas.TareaObtenerProvincias;
 
 public class CiudadController {
 
+    public static ArrayList<Ciudad> obtenerCiudades()
+    {
+        ArrayList<Ciudad> ciudadesDevueltas = null;
+        FutureTask t = new FutureTask (new TareaObtenerCiudades());
+        ExecutorService es = Executors.newSingleThreadExecutor();
+        es.submit(t);
+        try {
+            ciudadesDevueltas= (ArrayList<Ciudad>)t.get();
+            es.shutdown();
+            try {
+                if (!es.awaitTermination(800, TimeUnit.MILLISECONDS)) {
+                    es.shutdownNow();
+                }
+            } catch (InterruptedException e) {
+                es.shutdownNow();
+            }
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return ciudadesDevueltas;
+    }
+    //---------------------------------------------------------------------------
     //-----------------------------------------------------------------------------
     public static void MostrarCiudades(TextView txt_ciudades)
     {

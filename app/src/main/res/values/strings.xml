@@ -17,4 +17,9 @@
     <string name="nombre_hint_provincia">Nombre Provincia</string>
     <string name="txt_nombre_provinciaa">Nombre provincia</string>
     <string name="txt_id_provinciaa">id Provincia</string>
+    <string name="listaciudades">Lista de ciudades</string>
+    <string name="img_ciudad">Ciudad</string>
+    <string name="nombre_ciudad">Nombre Ciudad</string>
+    <string name="provincia">Provincia:</string>
+    <string name="habitantes">Habitantes:</string>
 </resources>
