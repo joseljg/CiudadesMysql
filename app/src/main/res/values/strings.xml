@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Ciudades Mysql</string>
     <string name="mostrar_ciudades">Mostrar Ciudades</string>
-    <string name="nueva_provincia">Nueva Provincia</string>
     <string name="nombre">Nombre</string>
     <string name="guardar_provincia">Guardar Provincia</string>
     <string name="borrar_provincia">Borrar Provincia</string>
@@ -22,4 +21,5 @@
     <string name="nombre_ciudad">Nombre Ciudad</string>
     <string name="provincia">Provincia:</string>
     <string name="habitantes">Habitantes:</string>
+    <string name="nueva_provincia">Nueva Provincia</string>
 </resources>

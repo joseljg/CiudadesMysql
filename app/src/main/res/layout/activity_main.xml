@@ -4,4 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/bt_nuevaProvincia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="@string/nueva_provincia"
+        android:onClick="nuevaProvincia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_borrarProvincia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/borrar_provincia"
+        android:onClick="borrarProvincia"
+        app:layout_constraintEnd_toEndOf="@+id/bt_actualizarProvincia"
+        app:layout_constraintStart_toStartOf="@+id/bt_actualizarProvincia"
+        app:layout_constraintTop_toBottomOf="@+id/bt_actualizarProvincia" />
+
+    <Button
+        android:id="@+id/bt_actualizarProvincia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/actualizar_provincia"
+        android:onClick="actualizarProvincia"
+        app:layout_constraintEnd_toEndOf="@+id/bt_nuevaProvincia"
+        app:layout_constraintStart_toStartOf="@+id/bt_nuevaProvincia"
+        app:layout_constraintTop_toBottomOf="@+id/bt_nuevaProvincia" />
+
+    <Button
+        android:id="@+id/bt_mostrarCiudades"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="Mostrar Ciudades"
+        android:onClick="mostrarCiudad"
+        app:layout_constraintEnd_toEndOf="@+id/bt_borrarProvincia"
+        app:layout_constraintStart_toStartOf="@+id/bt_borrarProvincia"
+        app:layout_constraintTop_toBottomOf="@+id/bt_borrarProvincia" />
+</androidx.constraintlayout.widget.ConstraintLayout>

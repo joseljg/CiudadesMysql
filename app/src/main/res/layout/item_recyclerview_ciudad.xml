@@ -6,36 +6,37 @@
     android:layout_margin="10dp">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="185dp"
-        android:layout_height="match_parent"
+        android:id="@+id/img_ciudad"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_weight="1"
         android:contentDescription="@string/img_ciudad"
         app:srcCompat="@drawable/ciudad1" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="143dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/txt_rv_nombrec"
             android:layout_width="match_parent"
-            android:layout_height="59dp"
+            android:layout_height="wrap_content"
             android:text="@string/nombre_ciudad"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txt_rv_habitantes"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:text="@string/habitantes" />
 
         <TextView
             android:id="@+id/txt_rv_provincia"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="wrap_content"
             android:text="@string/provincia" />
     </LinearLayout>
 </LinearLayout>
