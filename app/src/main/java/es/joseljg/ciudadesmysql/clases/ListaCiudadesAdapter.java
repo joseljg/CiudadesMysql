@@ -43,4 +43,20 @@ public class ListaCiudadesAdapter extends RecyclerView.Adapter<CiudadViewHolder>
     public int getItemCount() {
         return listaCiudades.size();
     }
+
+    public Context getC() {
+        return c;
+    }
+
+    public void setC(Context c) {
+        this.c = c;
+    }
+
+    public ArrayList<Ciudad> getListaCiudades() {
+        return listaCiudades;
+    }
+
+    public void setListaCiudades(ArrayList<Ciudad> listaCiudades) {
+        this.listaCiudades = listaCiudades;
+    }
 }

@@ -11,29 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CiudadesMysql">
-
-        <activity android:name=".MostrarCiudadesActivity">
-        </activity>
-
-        <activity android:name=".ActualizarProvinciaActivity2">
-        </activity>
-
-        <activity android:name=".ActualizarProvinciaActivity1">
-        </activity>
-
-        <activity android:name=".BorrarProvinciaActivity">
-        </activity>
-
-        <activity android:name=".NuevaProvinciaActivity">
-        </activity>
-
+        <activity android:name=".MostrarDetalleCiudadActivity"></activity>
+        <activity android:name=".NuevaCiudadActivity" />
+        <activity android:name=".MostrarCiudadesActivity" />
+        <activity android:name=".ActualizarProvinciaActivity2" />
+        <activity android:name=".ActualizarProvinciaActivity1" />
+        <activity android:name=".BorrarProvinciaActivity" />
+        <activity android:name=".NuevaProvinciaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

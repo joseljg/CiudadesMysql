@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NuevaCiudadActivity">
+
+    <TextView
+        android:id="@+id/txt_nueva_ciudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/nueva_ciudad"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_nuevac_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nueva_ciudad" />
+
+    <EditText
+        android:id="@+id/edt_nuevac_habitantes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/habitantes"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/edt_nuevac_nombre"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_nuevac_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nuevac_nombre" />
+
+    <Spinner
+        android:id="@+id/sp_nuevac_provincia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/edt_nuevac_habitantes"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edt_nuevac_habitantes"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nuevac_habitantes" />
+
+    <Button
+        android:id="@+id/bt_guardarc"
+        android:layout_width="208dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="44dp"
+        android:onClick="insertarCiudad"
+        android:text="@string/guardar_ciudad"
+        app:layout_constraintEnd_toEndOf="@+id/sp_nuevac_provincia"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/sp_nuevac_provincia"
+        app:layout_constraintTop_toBottomOf="@+id/sp_nuevac_provincia" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

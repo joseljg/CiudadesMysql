@@ -58,7 +58,6 @@ public class ActualizarProvinciaActivity2 extends AppCompatActivity {
                     ActualizarProvinciaActivity1.adapter.clear();
                     ArrayList<Provincia> provincias = ProvinciaController.obtenerProvincias();
                     ActualizarProvinciaActivity1.adapter.addAll(provincias);
-                    ActualizarProvinciaActivity1.pseleccionada = p;
                     mostrarToast("provincia actualizada correctamente");
                 }
                 else{

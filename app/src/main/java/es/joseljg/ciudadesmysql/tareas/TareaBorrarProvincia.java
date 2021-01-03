@@ -14,7 +14,7 @@ public class TareaBorrarProvincia implements Callable<Boolean> {
 
     @Override
     public Boolean call() throws Exception {
-        boolean insertadoOK = ProvinciaDB.borrarProvinciaTabla(p);
-        return insertadoOK;
+        boolean borradoOK = ProvinciaDB.borrarProvinciaTabla(p);
+        return borradoOK;
     }
 }

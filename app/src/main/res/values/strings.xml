@@ -18,8 +18,14 @@
     <string name="txt_id_provinciaa">id Provincia</string>
     <string name="listaciudades">Lista de ciudades</string>
     <string name="img_ciudad">Ciudad</string>
-    <string name="nombre_ciudad">Nombre Ciudad</string>
     <string name="provincia">Provincia:</string>
     <string name="habitantes">Habitantes:</string>
     <string name="nueva_provincia">Nueva Provincia</string>
+    <string name="img_add_ciudad">img_add_ciudad</string>
+    <string name="nueva_ciudad">Nueva Ciudad</string>
+    <string name="guardar_ciudad">Guardar Ciudad</string>
+    <string name="imagen_dealle_ciudad">Detalle Ciudad</string>
+    <string name="nombre_ciudad">Nombre Ciudad</string>
+    <string name="habitantes_ciudad">Habitantes Ciudad</string>
+    <string name="id_provincia_ciudad">Id Provincia Ciudad</string>
 </resources>

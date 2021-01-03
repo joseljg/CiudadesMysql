@@ -1,6 +1,5 @@
 package es.joseljg.ciudadesmysql.controladores;
 
-import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -11,11 +10,12 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 import es.joseljg.ciudadesmysql.clases.Ciudad;
-import es.joseljg.ciudadesmysql.clases.Provincia;
+import es.joseljg.ciudadesmysql.tareas.TareaBorrarCiudad;
+import es.joseljg.ciudadesmysql.tareas.TareaBorrarProvincia;
 import es.joseljg.ciudadesmysql.tareas.TareaInsertarCiudad;
+import es.joseljg.ciudadesmysql.tareas.TareaInsertarProvincia;
 import es.joseljg.ciudadesmysql.tareas.TareaMostrarCiudades;
 import es.joseljg.ciudadesmysql.tareas.TareaObtenerCiudades;
-import es.joseljg.ciudadesmysql.tareas.TareaObtenerProvincias;
 
 public class CiudadController {
 
@@ -76,9 +76,57 @@ public class CiudadController {
         }
     }
     //---------------------------------------------------------------------------
-    public static void InsertarCiudad(Ciudad c)
+    public static boolean InsertarCiudad(Ciudad c)
     {
+        FutureTask t = new FutureTask(new TareaInsertarCiudad(c));
+        ExecutorService es = Executors.newSingleThreadExecutor();
+        es.submit(t);
+        boolean insercionOK = false;
+        try {
+            insercionOK = (boolean) t.get();
+            es.shutdown();
+            try {
+                if (!es.awaitTermination(800, TimeUnit.MILLISECONDS)) {
+                    es.shutdownNow();
+                }
+            } catch (InterruptedException e) {
+                es.shutdownNow();
+            }
+        } catch (
+                ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finally {
+            return insercionOK;
+        }
+    }
 
+    public static boolean borrarCiudad(Ciudad cseleccionada) {
+        FutureTask t = new FutureTask(new TareaBorrarCiudad(cseleccionada));
+        ExecutorService es = Executors.newSingleThreadExecutor();
+        es.submit(t);
+        boolean borradoOK = false;
+        try {
+            borradoOK = (boolean) t.get();
+            es.shutdown();
+            try {
+                if (!es.awaitTermination(800, TimeUnit.MILLISECONDS)) {
+                    es.shutdownNow();
+                }
+            } catch (InterruptedException e) {
+                es.shutdownNow();
+            }
+        } catch (
+                ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finally {
+            return borradoOK;
+        }
     }
     //---------------------------------------------------------------------------
 

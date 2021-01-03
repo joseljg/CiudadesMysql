@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp">
-
-    <ImageView
-        android:id="@+id/img_ciudad"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        android:contentDescription="@string/img_ciudad"
-        app:srcCompat="@drawable/ciudad1" />
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_margin="10dp">
 
-        <TextView
-            android:id="@+id/txt_rv_nombrec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre_ciudad"
-            android:textSize="24sp" />
+        <ImageView
+            android:id="@+id/img_ciudad"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/img_ciudad"
+            app:srcCompat="@drawable/ciudad1" />
 
-        <TextView
-            android:id="@+id/txt_rv_habitantes"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/habitantes" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/txt_rv_provincia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/provincia" />
+            <TextView
+                android:id="@+id/txt_rv_nombrec"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_ciudad"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/txt_rv_habitantes"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/habitantes" />
+
+            <TextView
+                android:id="@+id/txt_rv_provincia"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/provincia" />
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</androidx.cardview.widget.CardView>
