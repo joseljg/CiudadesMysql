@@ -103,4 +103,13 @@ public class MostrarCiudadesActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NuevaCiudadActivity.class);
         startActivityForResult(intent, PETICION1);
     }
+
+    public void refrescarCiudades(View view) {
+        ciudades = CiudadController.obtenerCiudades();
+        if(ciudades != null) {
+            mAdapter.setListaCiudades(ciudades);
+            mRecyclerView.getAdapter().notifyDataSetChanged();
+        }
+    }
+
 }

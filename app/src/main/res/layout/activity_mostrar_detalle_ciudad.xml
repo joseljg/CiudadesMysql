@@ -19,8 +19,9 @@
 
     <TextView
         android:id="@+id/txt_detalle_nombrec"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_marginTop="50dp"
         android:text="@string/nombre_ciudad"
         android:textSize="36sp"
