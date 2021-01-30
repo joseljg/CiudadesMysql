@@ -1,5 +1,8 @@
 package es.joseljg.ciudadesmysql.modelos;
 
+import android.os.StrictMode;
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,10 +14,16 @@ public class BaseDB {
 	//----------------------------------------------------------....
 	public static Connection conectarConBaseDeDatos() {
 		try {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
 			Connection conexion = DriverManager.getConnection(ConfiguracionDB.URLMYSQL, ConfiguracionDB.USUARIODB, ConfiguracionDB.CLAVEDB);
+			Log.i("conexion","conexion establecida");
 			return conexion;
 		} catch (SQLException e) {
-			System.out.println("no se pudo establecer la conexion con la base de datos");
+			Log.i("conexion","no se pudo conectar con la base de datos");
+			Log.i("conexion", "la cadena de conexion url es " + ConfiguracionDB.URLMYSQL);
+			// System.out.println("no se pudo establecer la conexion con la base de datos");
+
 			return null;
 		}		
 	}	

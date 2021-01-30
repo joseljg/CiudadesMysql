@@ -16,12 +16,22 @@ public class ListaCiudadesAdapter extends RecyclerView.Adapter<CiudadViewHolder>
 
     private Context c;
     private  ArrayList<Ciudad> listaCiudades;
+    private  ArrayList<FotoCiudad> listaFotosCiudades;
     private LayoutInflater mInflater;
 
-    public ListaCiudadesAdapter(Context c, ArrayList<Ciudad> listaCiudades) {
+    public ListaCiudadesAdapter(Context c, ArrayList<Ciudad> listaCiudades, ArrayList<FotoCiudad> fotosCiudades) {
         this.c = c;
         this.listaCiudades = listaCiudades;
+        this.listaFotosCiudades = fotosCiudades;
         mInflater = LayoutInflater.from(c);
+    }
+
+    public ArrayList<FotoCiudad> getListaFotosCiudades() {
+        return listaFotosCiudades;
+    }
+
+    public void setListaFotosCiudades(ArrayList<FotoCiudad> listaFotosCiudades) {
+        this.listaFotosCiudades = listaFotosCiudades;
     }
 
     @NonNull
@@ -37,6 +47,14 @@ public class ListaCiudadesAdapter extends RecyclerView.Adapter<CiudadViewHolder>
         holder.txt_rv_nombrec.setText("Ciudad: " + ciudadActual.getNombre());
         holder.txt_rv_habitantes.setText(String.valueOf("habitantes: " + ciudadActual.getHabitantes()));
         holder.txt_rv_provincia.setText(String.valueOf("idprovincia: " + ciudadActual.getIdprovincia()));
+        for(FotoCiudad fc: this.listaFotosCiudades)
+        {
+            if(fc.getIdciudad()==ciudadActual.getIdciudad())
+            {
+                holder.img_ciudad.setImageBitmap(fc.getFoto());
+                break;
+            }
+        }
     }
 
     @Override

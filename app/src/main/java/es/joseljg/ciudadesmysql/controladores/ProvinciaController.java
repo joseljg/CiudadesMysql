@@ -47,7 +47,7 @@ public class ProvinciaController {
 
     //---------------------------------------------------------------------------
 
-    public static ArrayList<Provincia> obtenerProvincias()
+    public static ArrayList<Provincia>   obtenerProvincias()
     {
         ArrayList<Provincia> provinciasDevueltas = null;
         FutureTask t = new FutureTask (new TareaObtenerProvincias());

@@ -18,9 +18,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import es.joseljg.ciudadesmysql.clases.Ciudad;
+import es.joseljg.ciudadesmysql.clases.FotoCiudad;
 import es.joseljg.ciudadesmysql.clases.ListaCiudadesAdapter;
 import es.joseljg.ciudadesmysql.clases.Provincia;
 import es.joseljg.ciudadesmysql.controladores.CiudadController;
+import es.joseljg.ciudadesmysql.controladores.FotoCiudadController;
 import es.joseljg.ciudadesmysql.controladores.ProvinciaController;
 
 public class MostrarCiudadesActivity extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class MostrarCiudadesActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ListaCiudadesAdapter mAdapter;
     private ArrayList<Ciudad> ciudades;
+    private ArrayList<FotoCiudad> fotosCiudades;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,19 +39,21 @@ public class MostrarCiudadesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mostrar_ciudades);
         //-----------------------------------------------------------
         ciudades = CiudadController.obtenerCiudades();
+        fotosCiudades = FotoCiudadController.obtenerFotosCiudades();
         if(ciudades != null) {
+            mostrarToast("se ha estableciod la conexion con la base de datos");
+            mostrarToast("el número de ciudades recuperadas es " + ciudades.size());
             //-------------------------------------------------------
             // Get a handle to the RecyclerView.
             mRecyclerView = findViewById(R.id.rv_ciudades);
             // Create an adapter and supply the data to be displayed.
-            mAdapter = new ListaCiudadesAdapter(this, ciudades);
+            mAdapter = new ListaCiudadesAdapter(this, ciudades, fotosCiudades);
             // Connect the adapter with the RecyclerView.
             mRecyclerView.setAdapter(mAdapter);
             // Give the RecyclerView a default layout manager.
             mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        }
         //------------------------------------------------------------
-        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
+            ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
                 ItemTouchHelper.DOWN | ItemTouchHelper.UP, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -78,6 +83,10 @@ public class MostrarCiudadesActivity extends AppCompatActivity {
             }
         });
         helper.attachToRecyclerView(mRecyclerView);
+        }
+        else{
+            mostrarToast("no se pudo establecer la conexion con la base de datos");
+        }
     }
 
     private void mostrarToast(String texto) {

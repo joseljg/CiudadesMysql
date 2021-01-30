@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario2</title>
+    <link rel="stylesheet" href="estiloformulario.css">
+</head>
+<body>
+  <div id="contenedor">
+    <form action="mostrarfoto.php" method="POST" enctype="multipart/form-data" autocomplete="on">
+
+	   <fieldset name="datosconexion" id="datosconexion">
+            <legend>Datos de conexion </legend>
+		<div class="fila">
+            <div class="columna1">
+                <label for="host"> Host (*)</label>
+            </div>
+            <div class="columna2">
+                <input type="text" size="50" maxlength="50" placeholder="Hostname de base de datos" id="host" name="host" value="localhost"  required>
+            </div>                 
+        </div>
+		
+		<div class="fila">
+            <div class="columna1">
+                <label for="usuario"> Usuario (*)</label>
+            </div>
+            <div class="columna2">
+                <input type="text" size="50" maxlength="50" placeholder="Usuario" id="usuario" name="usuario" value="root"  required>
+            </div>             
+        </div>
+		
+		<div class="fila">
+            <div class="columna1">
+                <label for="clave"> Clave (*) <br>(por defecto: 1234)</label>
+            </div>
+            <div class="columna2">
+                <input type="password" size="50" maxlength="50" placeholder="clave" id="clave" name="clave" value="1234"  required>
+            </div>             
+        </div>
+
+		<div class="fila">
+            <div class="columna1">
+                <label for="usuario">Base de datos (*)</label>
+            </div>
+            <div class="columna2">
+                <input type="text" size="50" maxlength="50" placeholder="Base de datos" id="DB" name="DB" value="ciudadesdb"  required>
+            </div>             
+        </div>
+    </fieldset>
+	<fieldset name="datosimagen" id="datosimagen">
+                <legend> datos necesarios para guardar la imagen </legend>
+                <div class="fila">
+                     <div class="columna1">
+                        <label for="valorPK"> Valor de la clave primaria idciudad (*)</label>
+                    </div>
+                    <div class="columna2">
+                        <input type="text" size="50" maxlength="50" placeholder="valor clave primaria de la tabla" id="valorPK" name="valorPK"   required>
+                    </div>             
+                </div>                
+	</fieldset>
+       <div class="fila">
+        <input type="submit" id="mostrarfoto" name="mostrarfoto" value="mostrar foto"/>
+    </div>
+    </form>
+</div>
+</body>
+</html>

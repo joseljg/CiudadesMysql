@@ -1,0 +1,93 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+@font-face {
+    font-family: "Goldman";
+    src: url('./Goldman-Regular.ttf');
+}
+
+#contenedor{
+background-color: rgba(104, 105, 110, 0.37);
+padding: 5px;
+border-radius: 4px;
+margin: 30px;
+padding: 30px;
+width: 600px;
+}
+
+.fila{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 5px 2px;
+    margin: 5px 2px;
+}
+
+#datosconexion {
+    background-color:rgba(116, 107, 236, 0.37);
+    margin-bottom: 30px;
+}
+#datosimagen {
+    background-color:rgba(247, 231, 11, 0.74);
+    margin-bottom: 30px;
+}
+	
+.columna1{
+    flex-basis: 150px;
+}
+
+.columna2{
+    flex-basis:400px;
+
+}
+
+input, label{
+    font-family: 'Goldman', cursive;
+}
+
+input[type=text],input[type=password],input[type=email]
+{
+    padding: 5px;
+    margin: 5px;
+    width: 400px;
+    border-radius: 4px;
+    display: inline-block;
+    border: 3px solid rgb(214, 212, 212); 
+    transition: width 2s, height 2s, transform 2s;
+}
+
+input[type=text]:focus,[type=email]:focus,[type=password]:focus
+{
+    border: 3px solid rgb(236, 16, 16); 
+    padding-left: 10px;
+    background-size: contain;
+    height: 20px;
+    width: 400px;
+    font-size: 20px;
+}
+
+input[type=submit]
+{
+    padding-bottom: 10px;
+    width: 200px;
+    border-radius: 4px;
+    height: 20px;
+    font-size: 20px;
+    background-color: rgba(71, 52, 235, 0.705);
+    display: inline-block;
+}
+
+@media (max-width: 650px) {
+    .fila{
+        flex-direction: column;
+    }
+    .columna1,.columna2{
+        flex-basis: 0;
+    }
+    #contenedor{
+        width: 450px;
+    }
+  }

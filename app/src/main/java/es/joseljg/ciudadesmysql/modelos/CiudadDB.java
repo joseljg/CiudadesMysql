@@ -1,6 +1,8 @@
 package es.joseljg.ciudadesmysql.modelos;
+import android.graphics.Bitmap;
 import android.util.Log;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,17 +11,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import es.joseljg.ciudadesmysql.clases.Ciudad;
+import es.joseljg.ciudadesmysql.clases.FotoCiudad;
+import es.joseljg.ciudadesmysql.utilidades.ImagenesBlobBitmap;
 
 
 public class CiudadDB {
 
 
     //-----------------------------------------------------------
-    public static ArrayList<Ciudad> obtenerCiudades()
-    {
+    public static ArrayList<Ciudad> obtenerCiudades() {
         Connection conexion = BaseDB.conectarConBaseDeDatos();
-        if(conexion == null)
-        {
+        if (conexion == null) {
             return null;
         }
         ArrayList<Ciudad> ciudadesDevueltas = new ArrayList<Ciudad>();
@@ -27,8 +29,7 @@ public class CiudadDB {
             Statement sentencia = conexion.createStatement();
             String ordenSQL = "select * from ciudades";
             ResultSet resultado = sentencia.executeQuery(ordenSQL);
-            while(resultado.next())
-            {
+            while (resultado.next()) {
                 int idciudad = resultado.getInt("idciudad");
                 String nombre = resultado.getString("nombre");
                 int habitantes = resultado.getInt("habitantes");
@@ -45,12 +46,11 @@ public class CiudadDB {
             return null;
         }
     }
+
     //-------------------------------------------------------
-    public static boolean insertarCiudadTabla(Ciudad c)
-    {
+    public static boolean insertarCiudadTabla(Ciudad c) {
         Connection conexion = BaseDB.conectarConBaseDeDatos();
-        if(conexion == null)
-        {
+        if (conexion == null) {
             return false;
         }
         //----------------------------
@@ -63,23 +63,20 @@ public class CiudadDB {
             int filasAfectadas = pst.executeUpdate();
             pst.close();
             conexion.close();
-            if(filasAfectadas > 0)
-            {
+            if (filasAfectadas > 0) {
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         } catch (SQLException e) {
             return false;
         }
     }
+
     //-----------------------------------------------------------
-    public static boolean borrarCiudadTabla(Ciudad c)
-    {
+    public static boolean borrarCiudadTabla(Ciudad c) {
         Connection conexion = BaseDB.conectarConBaseDeDatos();
-        if(conexion == null)
-        {
+        if (conexion == null) {
             return false;
         }
         //----------------------------
@@ -90,23 +87,20 @@ public class CiudadDB {
             int filasAfectadas = pst.executeUpdate();
             pst.close();
             conexion.close();
-            if(filasAfectadas > 0)
-            {
+            if (filasAfectadas > 0) {
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         } catch (SQLException e) {
             return false;
         }
     }
+
     //---------------------------------------------------------------
-    public static boolean actualizarCiudadTabla(Ciudad c)
-    {
+    public static boolean actualizarCiudadTabla(Ciudad c) {
         Connection conexion = BaseDB.conectarConBaseDeDatos();
-        if(conexion == null)
-        {
+        if (conexion == null) {
             return false;
         }
         //----------------------------
@@ -120,23 +114,20 @@ public class CiudadDB {
             int filasAfectadas = pst.executeUpdate();
             pst.close();
             conexion.close();
-            if(filasAfectadas > 0)
-            {
+            if (filasAfectadas > 0) {
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         } catch (SQLException e) {
             return false;
         }
     }
+
     //--------------------------------------------------------------
-    public static Ciudad buscarCiudadTabla(String nombre)
-    {
+    public static Ciudad buscarCiudadTabla(String nombre) {
         Connection conexion = BaseDB.conectarConBaseDeDatos();
-        if(conexion == null)
-        {
+        if (conexion == null) {
             return null;
         }
         //---------------------------------
@@ -147,13 +138,12 @@ public class CiudadDB {
             pst.setString(1, nombre);
             ResultSet resultadosql = pst.executeQuery();
             //------------------------------------------------
-            while(resultadosql.next())
-            {
+            while (resultadosql.next()) {
                 int idciudad = resultadosql.getInt("idciudad");
                 String nombreciudad = resultadosql.getString("nombre");
                 int habitantes = resultadosql.getInt("habitantes");
                 int idprovincia = resultadosql.getInt("idprovincia");
-                ciudadEncontrada = new Ciudad(idciudad,nombreciudad, habitantes, idprovincia);
+                ciudadEncontrada = new Ciudad(idciudad, nombreciudad, habitantes, idprovincia);
             }
             resultadosql.close();
             pst.close();
@@ -164,7 +154,32 @@ public class CiudadDB {
         }
     }
 
-
-//--------------------------------------------------------------
-
+    public static ArrayList<FotoCiudad> obtenerFotosCiudades(int width, int height) {
+        Connection conexion = BaseDB.conectarConBaseDeDatos();
+        if (conexion == null) {
+            return null;
+        }
+        ArrayList<FotoCiudad> fotosCiudadesDevueltas = new ArrayList<FotoCiudad>();
+        try {
+            Statement sentencia = conexion.createStatement();
+            String ordenSQL = "select * from fotos_ciudades";
+            ResultSet resultado = sentencia.executeQuery(ordenSQL);
+            while (resultado.next()) {
+                int idfoto = resultado.getInt("idfoto");
+                Blob foto = resultado.getBlob("foto");
+                Bitmap bm_foto = ImagenesBlobBitmap.blob_to_bitmap(foto, width, height);
+                int idciudad = resultado.getInt("idciudad");
+                FotoCiudad fc = new FotoCiudad(idfoto, bm_foto, idciudad);
+                fotosCiudadesDevueltas.add(fc);
+            }
+            resultado.close();
+            sentencia.close();
+            conexion.close();
+            return fotosCiudadesDevueltas;
+        } catch (SQLException e) {
+            Log.i("sql", "error sql");
+            return null;
+        }
+    }
 }
+//--------------------------------------------------------------
