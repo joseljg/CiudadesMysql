@@ -41,8 +41,8 @@ public class MostrarCiudadesActivity extends AppCompatActivity {
         ciudades = CiudadController.obtenerCiudades();
         fotosCiudades = FotoCiudadController.obtenerFotosCiudades();
         if(ciudades != null) {
-            mostrarToast("se ha estableciod la conexion con la base de datos");
-            mostrarToast("el número de ciudades recuperadas es " + ciudades.size());
+           // mostrarToast("se ha estableciod la conexion con la base de datos");
+          //  mostrarToast("el número de ciudades recuperadas es " + ciudades.size());
             //-------------------------------------------------------
             // Get a handle to the RecyclerView.
             mRecyclerView = findViewById(R.id.rv_ciudades);

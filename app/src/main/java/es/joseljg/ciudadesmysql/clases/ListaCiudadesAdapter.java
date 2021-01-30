@@ -47,6 +47,8 @@ public class ListaCiudadesAdapter extends RecyclerView.Adapter<CiudadViewHolder>
         holder.txt_rv_nombrec.setText("Ciudad: " + ciudadActual.getNombre());
         holder.txt_rv_habitantes.setText(String.valueOf("habitantes: " + ciudadActual.getHabitantes()));
         holder.txt_rv_provincia.setText(String.valueOf("idprovincia: " + ciudadActual.getIdprovincia()));
+        if(this.listaFotosCiudades != null)
+        {
         for(FotoCiudad fc: this.listaFotosCiudades)
         {
             if(fc.getIdciudad()==ciudadActual.getIdciudad())
@@ -54,6 +56,7 @@ public class ListaCiudadesAdapter extends RecyclerView.Adapter<CiudadViewHolder>
                 holder.img_ciudad.setImageBitmap(fc.getFoto());
                 break;
             }
+        }
         }
     }
 
