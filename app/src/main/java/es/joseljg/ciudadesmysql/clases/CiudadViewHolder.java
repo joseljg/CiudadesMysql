@@ -50,7 +50,7 @@ public class CiudadViewHolder extends RecyclerView.ViewHolder implements View.On
         // update the RecyclerView to display the data.
         lcAdapter.notifyDataSetChanged();
         Intent intent = new Intent(lcAdapter.getC(), MostrarDetalleCiudadActivity.class);
-        ArrayList<FotoCiudad>  listaFotosCiudades = this.lcAdapter.getListaFotosCiudades();
+       // ArrayList<FotoCiudad>  listaFotosCiudades = this.lcAdapter.getListaFotosCiudades();
         intent.putExtra(EXTRA_OBJETO_CIUDAD, ciudad);
         lcAdapter.getC().startActivity(intent);
     }

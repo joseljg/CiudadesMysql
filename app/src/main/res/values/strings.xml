@@ -31,4 +31,9 @@
     <string name="descripcion_plus">descripcion plus</string>
     <string name="descripcion_imagen1">descripcion_imagen1</string>
     <string name="descripcion_reload">descripcion_reload</string>
+    <string name="nombre_ciudad1">Nombre ciudad</string>
+    <string name="detalles_de_la_ciudad">Detalles de la Ciudad</string>
+    <string name="habitantes1">habitantes</string>
+    <string name="provincia1">Provincia</string>
+    <string name="foto_ciudad">foto ciudad</string>
 </resources>
